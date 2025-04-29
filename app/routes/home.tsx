@@ -7,6 +7,10 @@ export function meta() {
 			name: "description",
 			content: "Statistics Tracker for the Minecraft server, Hypixel.",
 		},
+		{
+			property: "og:title",
+			content: "Decent Statistics",
+		},
 	];
 }
 

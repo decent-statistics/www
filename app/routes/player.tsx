@@ -56,7 +56,17 @@ const InGameCodes = {
 };
 
 export function meta({ data }: Route.MetaArgs) {
-	return [{ title: `"${data.mojang.username}" | Decent Statistics` }];
+	return [
+		{ title: `"${data.mojang.username}" | Decent Statistics` },
+		{
+			property: "og:title",
+			content: `"${data.mojang.username}" | Decent Statistics`,
+		},
+		{
+			property: "og:description",
+			content: `View statistics for the player "${data.mojang.username}".`,
+		},
+	];
 }
 
 export async function loader({ params }: Route.LoaderArgs) {

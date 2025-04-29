@@ -23,7 +23,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Meta />
 				<Links />
 			</head>
-			<body className="dark relative h-[200vh] font-sans antialiased">
+			<body className="dark relative mx-2 font-sans antialiased">
 				{children}
 				<ScrollRestoration />
 				<Scripts />

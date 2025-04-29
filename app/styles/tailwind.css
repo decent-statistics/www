@@ -5,12 +5,15 @@
 
 @utility container {
 	margin-inline: auto;
-	padding-inline: 2rem;
+	padding-inline: 0.5rem;
   max-width: 72rem
 }
 
 @theme {
-  --font-sans: "Satoshi", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: "Satoshi", ui-sans-serif;
+	--font-minecraft: "Minecraft", ui-sans-serif;
+	--font-beauty: "Beauty", ui-sans-serif;
+	--font-beauty-extra: "Beauty Extra", ui-sans-serif;
 }
 
 @theme inline {
@@ -49,10 +52,44 @@
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-ring: var(--sidebar-ring);
+
+	--color-minecraft-black: var(--minecraft-black);
+  --color-minecraft-dark-blue: var(--minecraft-dark-blue);
+  --color-minecraft-dark-green: var(--minecraft-dark-green);
+  --color-minecraft-dark-aqua: var(--minecraft-dark-aqua);
+  --color-minecraft-dark-red: var(--minecraft-dark-red);
+  --color-minecraft-dark-purple: var(--minecraft-dark-purple);
+  --color-minecraft-gold: var(--minecraft-gold);
+  --color-minecraft-gray: var(--minecraft-gray);
+  --color-minecraft-dark-gray: var(--minecraft-dark-gray);
+  --color-minecraft-blue: var(--minecraft-blue);
+  --color-minecraft-green: var(--minecraft-green);
+  --color-minecraft-aqua: var(--minecraft-aqua);
+  --color-minecraft-red: var(--minecraft-red);
+  --color-minecraft-light-purple: var(--minecraft-light-purple);
+  --color-minecraft-yellow: var(--minecraft-yellow);
+  --color-minecraft-white: var(--minecraft-white);
+
+	--color-minecraft-black-shadow: var(--minecraft-black-shadow);
+  --color-minecraft-dark-blue-shadow: var(--minecraft-dark-blue-shadow);
+  --color-minecraft-dark-green-shadow: var(--minecraft-dark-green-shadow);
+  --color-minecraft-dark-aqua-shadow: var(--minecraft-dark-aqua-shadow);
+  --color-minecraft-dark-red-shadow: var(--minecraft-dark-red-shadow);
+  --color-minecraft-dark-purple-shadow: var(--minecraft-dark-purple-shadow);
+  --color-minecraft-gold-shadow: var(--minecraft-gold-shadow);
+  --color-minecraft-gray-shadow: var(--minecraft-gray-shadow);
+  --color-minecraft-dark-gray-shadow: var(--minecraft-dark-gray-shadow);
+  --color-minecraft-blue-shadow: var(--minecraft-blue-shadow);
+  --color-minecraft-green-shadow: var(--minecraft-green-shadow);
+  --color-minecraft-aqua-shadow: var(--minecraft-aqua-shadow);
+  --color-minecraft-red-shadow: var(--minecraft-red-shadow);
+  --color-minecraft-light-purple-shadow: var(--minecraft-light-purple-shadow);
+  --color-minecraft-yellow-shadow: var(--minecraft-yellow-shadow);
+  --color-minecraft-white-shadow: var(--minecraft-white-shadow);
 }
 
 :root {
-	--radius: 0.625rem;
+	--radius: 0.75rem;
 	--background: oklch(1 0 0);
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
@@ -84,6 +121,40 @@
 	--sidebar-accent-foreground: oklch(0.205 0 0);
 	--sidebar-border: oklch(0.922 0 0);
 	--sidebar-ring: oklch(0.708 0 0);
+
+	--minecraft-black: #000000;
+  --minecraft-dark-blue: #0000AA;
+  --minecraft-dark-green: #00AA00;
+  --minecraft-dark-aqua: #00AAAA;
+  --minecraft-dark-red: #AA0000;
+  --minecraft-dark-purple: #AA00AA;
+  --minecraft-gold: #FFAA00;
+  --minecraft-gray: #AAAAAA;
+  --minecraft-dark-gray: #555555;
+  --minecraft-blue: #5555FF;
+  --minecraft-green: #55FF55;
+  --minecraft-aqua: #55FFFF;
+  --minecraft-red: #FF5555;
+  --minecraft-light-purple: #FF55FF;
+  --minecraft-yellow: #FFFF55;
+  --minecraft-white: #FFFFFF;
+
+	--minecraft-black-shadow: #000000;
+  --minecraft-dark-blue-shadow: #00002A;
+  --minecraft-dark-green-shadow: #002A00;
+  --minecraft-dark-aqua-shadow: #002A2A;
+  --minecraft-dark-red-shadow: #2A0000;
+  --minecraft-dark-purple-shadow: #2A002A;
+  --minecraft-gold-shadow: #402A00;
+  --minecraft-gray-shadow: #2A2A2A;
+  --minecraft-dark-gray-shadow: #151515;
+  --minecraft-blue-shadow: #15153F;
+  --minecraft-green-shadow: #153F15;
+  --minecraft-aqua-shadow: #153F3F;
+  --minecraft-red-shadow: #3F1515;
+  --minecraft-light-purple-shadow: #3F153F;
+  --minecraft-yellow-shadow: #3F3F15;
+  --minecraft-white-shadow: #3F3F3F;
 }
 
 .dark {
@@ -132,6 +203,26 @@
   @font-face {
 		font-family: "Satoshi";
 		src: url("/fonts/Satoshi-Variable.ttf"),
-			url("/fonts/Satoshi-Variable-Italic.ttf");
+				 url("/fonts/Satoshi-Variable-Italic.ttf");
 	}
+
+	@font-face {
+		font-family: "Minecraft";
+		src: url("/fonts/Minecraft.otf"), 
+				 url("/fonts/Minecraft-Bold.otf");
+	}
+
+	@font-face {
+		font-family: "Beauty";
+		src: url("/fonts/Beauty.otf");
+	}
+
+	@font-face {
+		font-family: "Beauty Extra";
+		src: url("/fonts/Beauty-Extra.otf");
+	}
+}
+
+@utility text-minecraft-* {
+	text-shadow: 2px 2px 0px --value(--color-minecraft-*-shadow)
 }

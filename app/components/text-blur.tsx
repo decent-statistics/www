@@ -1,10 +1,10 @@
 import { animated, useSprings } from "@react-spring/web";
 import { useEffect, useRef, useState } from "react";
 
-const BlurText = ({
-	text = "",
+export function BlurText({
+	text,
 	delay = 200,
-	className = "",
+	className,
 	animateBy = "words", // 'words' or 'letters'
 	direction = "top", // 'top' or 'bottom'
 	threshold = 0.1,
@@ -13,10 +13,22 @@ const BlurText = ({
 	animationTo,
 	easing = "easeOutCubic",
 	onAnimationComplete,
-}) => {
+}: {
+	text: string;
+	delay?: number;
+	className?: string;
+	animateBy?: "words" | "letters";
+	direction?: "top" | "bottom";
+	threshold?: number;
+	rootMargin?: string;
+	animationFrom?: unknown;
+	animationTo?: unknown;
+	easing?: string;
+	onAnimationComplete?: () => unknown;
+}) {
 	const elements = animateBy === "words" ? text.split(" ") : text.split("");
 	const [inView, setInView] = useState(false);
-	const ref = useRef();
+	const ref = useRef<HTMLParagraphElement>(null);
 	const animatedCount = useRef(0);
 
 	// Default animations based on direction
@@ -48,13 +60,17 @@ const BlurText = ({
 			([entry]) => {
 				if (entry.isIntersecting) {
 					setInView(true);
-					observer.unobserve(ref.current);
+					if (ref.current) {
+						observer.unobserve(ref.current);
+					}
 				}
 			},
 			{ threshold, rootMargin },
 		);
 
-		observer.observe(ref.current);
+		if (ref.current) {
+			observer.observe(ref.current);
+		}
 
 		return () => observer.disconnect();
 	}, [threshold, rootMargin]);
@@ -86,6 +102,7 @@ const BlurText = ({
 		<p ref={ref} className={`blur-text ${className} flex flex-wrap`}>
 			{springs.map((props, index) => (
 				<animated.span
+					// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 					key={index}
 					style={props}
 					className="inline-block will-change-[transform,filter,opacity]"
@@ -96,6 +113,4 @@ const BlurText = ({
 			))}
 		</p>
 	);
-};
-
-export default BlurText;
+}

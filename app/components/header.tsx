@@ -1,13 +1,14 @@
-import { Menu } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import {
 	type Variants,
 	motion,
 	useMotionValueEvent,
 	useScroll,
 } from "motion/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router";
 import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -18,6 +19,7 @@ import {
 	navigationMenuTriggerStyle,
 } from "~/components/ui/navigation-menu";
 import { useMediaQuery } from "~/hooks/media-query";
+import { cn } from "~/lib/utils";
 
 type HeaderState = "initial" | "desktop" | "mobile";
 
@@ -60,7 +62,7 @@ export function Header() {
 
 	return (
 		<motion.header
-			className="sticky z-100 mx-auto flex h-14 w-full max-w-5xl items-center justify-between rounded-full border p-2 backdrop-blur-xs"
+			className="sticky z-100 mx-auto flex h-14 w-full max-w-5xl items-center justify-between rounded-full border p-2 backdrop-blur-sm"
 			variants={variants}
 			animate={variant}
 		>
@@ -74,27 +76,8 @@ export function Header() {
 				<Link to={"/"}>Decent Statistics</Link>
 			</Button>
 			<div className="flex-1" />
-			{/* <div className="flex flex-1 justify-end">
-				<NavigationMenu className="hidden items-end md:flex">
-					<NavigationMenuList>
-						<NavigationMenuItem>
-							<NavigationMenuTrigger className="h-10 rounded-full">
-								Leaderboards
-							</NavigationMenuTrigger>
-							<NavigationMenuContent className="rounded-xl">
-								<NavigationMenuLink>Link</NavigationMenuLink>
-							</NavigationMenuContent>
-						</NavigationMenuItem>
-					</NavigationMenuList>
-				</NavigationMenu>
-				<Button
-					className="size-10 rounded-full md:hidden"
-					variant={"ghost"}
-					size={"icon"}
-				>
-					<Menu className="size-5" />
-				</Button>
-			</div> */}
 		</motion.header>
 	);
 }
+
+//

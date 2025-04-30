@@ -33,15 +33,11 @@ export default function Home() {
 
 	return (
 		<main className="container">
-			<section className="mx-6 mt-24 grid">
-				<article className="mx-auto mt-12 hidden max-w-148 sm:block">
-					<fieldset className="relative">
-						<BlurText
-							className="font-black text-5xl md:text-6xl"
-							text="Stalk like never before. Wherever, whenever."
-						/>
-						<EnterAnimation delay={1900} direction="right">
-							<p className="-rotate-10 -top-16 relative left-18 font-beauty text-8xl text-blue-400 text-shadow-blue-600/65 text-shadow-lg">
+			<section className="mx-6 grid h-[calc(100vh-3.5rem)] content-center">
+				<article className="mb-32 h-fit">
+					<article className="flex justify-center">
+						<EnterAnimation direction="down">
+							<p className="-rotate-8 relative font-beauty text-6xl text-blue-400 text-shadow-blue-600/65 text-shadow-lg sm:text-8xl md:text-9xl">
 								Decen<span className="font-beauty-extra">t</span>
 								<span className="relative top-4">
 									Statistic
@@ -49,35 +45,22 @@ export default function Home() {
 								</span>
 							</p>
 						</EnterAnimation>
-					</fieldset>
+					</article>
+					<form onSubmit={handleSearch}>
+						<fieldset className="mx-auto mt-18 flex max-w-148 gap-x-2">
+							<Input
+								className="w-full"
+								placeholder="Search for a player..."
+								value={searchQuery}
+								onChange={(e) => setSearchQuery(e.target.value)}
+							/>
+							<Button type="submit">
+								<Search />
+								Search
+							</Button>
+						</fieldset>
+					</form>
 				</article>
-				<article className="row-span-2 flex justify-center sm:hidden">
-					<EnterAnimation>
-						<p className="-rotate-10 relative font-beauty text-6xl text-blue-400 text-shadow-blue-600/65 text-shadow-lg">
-							Decen<span className="font-beauty-extra">t</span>
-							<span className="relative top-4">
-								Statistic
-								<span className="font-beauty-extra">s</span>
-							</span>
-						</p>
-					</EnterAnimation>
-				</article>
-			</section>
-			<section className="mt-24">
-				<form onSubmit={handleSearch}>
-					<fieldset className="mx-auto flex max-w-148 gap-x-2">
-						<Input
-							className="w-full"
-							placeholder="Search for a player..."
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-						/>
-						<Button type="submit">
-							<Search />
-							Search
-						</Button>
-					</fieldset>
-				</form>
 			</section>
 		</main>
 	);

@@ -32,9 +32,9 @@ export default function Home() {
 	};
 
 	return (
-		<main className="container h-[200vh]">
-			<section className="mx-6 mt-24 grid gap-x-0 lg:grid-cols-2">
-				<article className="mt-12 hidden sm:block">
+		<main className="container">
+			<section className="mx-6 mt-24 grid">
+				<article className="mx-auto mt-12 hidden max-w-148 sm:block">
 					<fieldset className="relative">
 						<BlurText
 							className="font-black text-5xl md:text-6xl"
@@ -68,7 +68,7 @@ export default function Home() {
 					<fieldset className="mx-auto flex max-w-148 gap-x-2">
 						<Input
 							className="w-full"
-							placeholder="Search for a player, guild or ..."
+							placeholder="Search for a player..."
 							value={searchQuery}
 							onChange={(e) => setSearchQuery(e.target.value)}
 						/>

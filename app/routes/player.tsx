@@ -100,7 +100,7 @@ export default function Player({ loaderData }: Route.ComponentProps) {
 				{player.guild && (
 					<CardTitle className="font-normal text-xl leading-5">
 						<MinecraftText
-							content={`${InGameCodes[player.guild.tagColor.color]}${player.guild.name} [${player.guild.tag}]`}
+							content={`${InGameCodes[player.guild.tagColor.color]}${player.guild.name}${player.guild.tag ? ` [${player.guild.tag}]` : ""}`}
 						/>
 					</CardTitle>
 				)}
@@ -324,7 +324,7 @@ export default function Player({ loaderData }: Route.ComponentProps) {
 						<CardHeader className="gap-y-0 px-6">
 							<CardTitle className="font-normal text-xl">
 								<MinecraftText
-									content={`${InGameCodes[player.guild.tagColor.color]}${player.guild.name} [${player.guild.tag}]`}
+									content={`${InGameCodes[player.guild.tagColor.color]}${player.guild.name}${player.guild.tag ? ` [${player.guild.tag}]` : ""}`}
 								/>
 							</CardTitle>
 							<CardDescription className="flex items-center gap-x-2">
